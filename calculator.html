@@ -248,7 +248,7 @@
         // Update internal view if enabled
         if (document.getElementById('internalView').style.display !== 'none') {
           const njordRevenue = grossRevenue * 0.90; // Njord's 90% revenue share
-          const productCosts = njordRevenue * 0.40; // 40% for product costs
+          const productCosts = grossRevenue * 0.40; // 40% of GROSS revenue for product costs
           const operatingCosts = Math.min(150, njordRevenue * 0.08); // Operating costs (capped at $150/month)
           const njordProfit = njordRevenue - productCosts - operatingCosts;
           

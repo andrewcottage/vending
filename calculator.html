@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Revenue Calculator — Njord Vending</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="description" content="Calculate potential revenue from placing a Njord vending machine at your property in Bergen County, NJ." />
+    <meta name="keywords" content="Bergen County vending machines, vending revenue calculator, property revenue, Asian snacks vending" />
+    <meta name="theme-color" content="#1f2937">
+
+    <style>
+      html { scroll-behavior: smooth; }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600..900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.counter.dev/script.js" data-id="683a3435-4656-4ba0-aace-89924a9be8b3" data-utcoffset="-4"></script>
+
+    <link rel="icon" href="/images/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: '#1f2937',
+              accent: '#3b82f6',
+              'light-blue': '#eff6ff',
+              'slate-50': '#f8fafc'
+            },
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['Cinzel', 'serif']
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="antialiased text-gray-800 bg-white relative font-sans selection:bg-blue-100 selection:text-blue-800">
+    <main>
+      <header class="pt-12 pb-10 border-b border-gray-100">
+        <div class="mx-auto max-w-5xl px-6">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <img src="/images/logo.png" alt="Njord Vending logo" class="h-16 w-16 rounded-full ring-2 ring-gray-200 object-cover shadow-sm">
+              <div>
+                <h1 class="text-2xl font-extrabold tracking-tight text-brand font-display">Njord LLC</h1>
+                <p class="text-gray-600">Revenue Calculator</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <a href="/" class="inline-flex items-center rounded-lg bg-white px-6 py-3 text-accent font-semibold ring-1 ring-accent/20 hover:bg-blue-50 transition hover:-translate-y-0.5">← Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="py-16 sm:py-24">
+        <div class="mx-auto max-w-4xl px-6">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-brand font-display">Revenue Calculator</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">See how much your property could earn with a Njord vending machine. You receive 10% of all gross revenue with zero investment or effort.</p>
+          </div>
+
+          <div class="grid gap-12 lg:grid-cols-2">
+            <!-- Calculator Form -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8">
+              <h3 class="text-xl font-semibold text-brand mb-6">Enter Your Location Details</h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <label for="footTraffic" class="block text-sm font-medium text-gray-700 mb-2">Average foot traffic per hour</label>
+                  <input type="number" id="footTraffic" value="50" min="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent">
+                  <p class="text-sm text-gray-500 mt-1">How many people pass by this area each hour?</p>
+                </div>
+
+                <div>
+                  <label for="operatingHours" class="block text-sm font-medium text-gray-700 mb-2">Operating hours per day</label>
+                  <input type="number" id="operatingHours" value="12" min="1" max="24" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent">
+                  <p class="text-sm text-gray-500 mt-1">How many hours is your location open/active?</p>
+                </div>
+
+                <div>
+                  <label for="daysPerMonth" class="block text-sm font-medium text-gray-700 mb-2">Active days per month</label>
+                  <input type="number" id="daysPerMonth" value="30" min="1" max="31" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent">
+                  <p class="text-sm text-gray-500 mt-1">How many days per month is your location active?</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 ring-1 ring-gray-200">
+                  <h4 class="font-medium text-gray-900 mb-2">Our proven metrics:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Conversion rate: 2-4% of foot traffic</li>
+                    <li>• Average sale: $3.50 per transaction</li>
+                    <li>• Your share: 10% of gross revenue</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Results -->
+            <div class="space-y-6">
+              <div class="bg-white rounded-2xl p-8 ring-1 ring-gray-200 shadow-sm">
+                <h3 class="text-xl font-semibold text-brand mb-6">Your Potential Monthly Revenue</h3>
+                
+                <div class="space-y-4">
+                  <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                    <span class="text-gray-600">Monthly foot traffic</span>
+                    <span class="font-semibold text-gray-900" id="monthlyTraffic">18,000</span>
+                  </div>
+                  
+                  <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                    <span class="text-gray-600">Expected sales (3% conversion)</span>
+                    <span class="font-semibold text-gray-900" id="expectedSales">540</span>
+                  </div>
+                  
+                  <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                    <span class="text-gray-600">Gross revenue</span>
+                    <span class="font-semibold text-gray-900" id="grossRevenue">$1,890</span>
+                  </div>
+                  
+                  <div class="flex justify-between items-center py-4 bg-green-50 px-4 rounded-lg">
+                    <span class="text-lg font-semibold text-green-800">Your 10% share</span>
+                    <span class="text-2xl font-bold text-green-600" id="yourShare">$189</span>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                  <h4 class="font-semibold text-brand mb-3">What you get:</h4>
+                  <ul class="text-sm text-gray-600 space-y-2">
+                    <li class="flex items-start gap-2">
+                      <div class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span><strong id="yearlyRevenue">$2,268</strong> per year in passive income</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <div class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Zero investment or operational costs</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <div class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Enhanced customer amenities</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <div class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Professional maintenance included</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
+                <h4 class="text-lg font-semibold text-brand mb-4">Ready to get started?</h4>
+                <p class="text-gray-600 mb-6">Contact us for a free site assessment and custom revenue projection for your specific location.</p>
+                <a href="mailto:contact@njordvending.com" class="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-white font-semibold hover:bg-blue-600 transition shadow-sm hover:shadow-md">
+                  Contact us today
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 text-center">
+            <div class="bg-gray-50 rounded-2xl p-8">
+              <h3 class="text-lg font-semibold text-brand mb-4">Why these numbers are realistic</h3>
+              <div class="grid gap-6 md:grid-cols-3 text-sm text-gray-600">
+                <div>
+                  <div class="font-medium text-brand mb-2">Proven Conversion Rates</div>
+                  <p>Our 2-4% conversion rate is based on actual performance data from similar specialty vending locations.</p>
+                </div>
+                <div>
+                  <div class="font-medium text-brand mb-2">Premium Products</div>
+                  <p>Asian specialty items command higher prices ($2-5) compared to traditional vending machine snacks.</p>
+                </div>
+                <div>
+                  <div class="font-medium text-brand mb-2">Strategic Placement</div>
+                  <p>We only place machines in high-traffic locations with demonstrated demand for our products.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function calculateRevenue() {
+        const footTraffic = parseInt(document.getElementById('footTraffic').value) || 0;
+        const operatingHours = parseInt(document.getElementById('operatingHours').value) || 0;
+        const daysPerMonth = parseInt(document.getElementById('daysPerMonth').value) || 0;
+        
+        // Constants
+        const conversionRate = 0.03; // 3%
+        const averageSale = 3.50;
+        const yourCut = 0.10; // 10%
+        
+        // Calculations
+        const monthlyTraffic = footTraffic * operatingHours * daysPerMonth;
+        const expectedSales = Math.round(monthlyTraffic * conversionRate);
+        const grossRevenue = expectedSales * averageSale;
+        const yourShare = grossRevenue * yourCut;
+        const yearlyRevenue = yourShare * 12;
+        
+        // Update display
+        document.getElementById('monthlyTraffic').textContent = monthlyTraffic.toLocaleString();
+        document.getElementById('expectedSales').textContent = expectedSales.toLocaleString();
+        document.getElementById('grossRevenue').textContent = '$' + grossRevenue.toLocaleString();
+        document.getElementById('yourShare').textContent = '$' + Math.round(yourShare).toLocaleString();
+        document.getElementById('yearlyRevenue').textContent = '$' + Math.round(yearlyRevenue).toLocaleString();
+      }
+      
+      // Add event listeners
+      document.getElementById('footTraffic').addEventListener('input', calculateRevenue);
+      document.getElementById('operatingHours').addEventListener('input', calculateRevenue);
+      document.getElementById('daysPerMonth').addEventListener('input', calculateRevenue);
+      
+      // Initial calculation
+      calculateRevenue();
+    </script>
+  </body>
+</html>

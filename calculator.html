@@ -12,6 +12,56 @@
 
     <style>
       html { scroll-behavior: smooth; }
+      
+      @media print {
+        /* Hide elements that shouldn't be printed */
+        header, #shareBtn, #printBtn, #shareMessage, .bg-gradient-to-br {
+          display: none !important;
+        }
+        
+        /* Remove background colors and gradients for printing */
+        * {
+          background: white !important;
+          color: black !important;
+          box-shadow: none !important;
+        }
+        
+        /* Style the page for printing */
+        body {
+          font-size: 12pt;
+          line-height: 1.4;
+        }
+        
+        /* Add a header for the printed version */
+        .print-header {
+          display: block !important;
+          text-align: center;
+          margin-bottom: 30px;
+          padding-bottom: 20px;
+          border-bottom: 2px solid #333;
+        }
+        
+        /* Make sure internal view is hidden when printing */
+        #internalView {
+          display: none !important;
+        }
+        
+        /* Style the calculator results for print */
+        .print-section {
+          margin-bottom: 20px;
+          padding: 15px;
+          border: 1px solid #ddd;
+        }
+        
+        /* Ensure good page breaks */
+        .no-break {
+          page-break-inside: avoid;
+        }
+      }
+      
+      .print-header {
+        display: none;
+      }
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +111,13 @@
           </div>
         </div>
       </header>
+
+      <!-- Print Header - Only visible when printing -->
+      <div class="print-header">
+        <h1 style="font-size: 24pt; font-weight: bold; margin-bottom: 10px;">Njord LLC - Revenue Calculator</h1>
+        <p style="font-size: 14pt; margin-bottom: 10px;">Vending Machines • Bergen County, New Jersey</p>
+        <p style="font-size: 12pt; color: #666;">Contact: contact@njordvending.com | (657) 775-0147</p>
+      </div>
 
       <section class="py-16 sm:py-24">
         <div class="mx-auto max-w-4xl px-6">
@@ -188,6 +245,9 @@
                   </a>
                   <button id="shareBtn" class="inline-flex items-center rounded-lg bg-white px-6 py-3 text-accent font-semibold ring-1 ring-accent/20 hover:bg-blue-50 transition">
                     📋 Share This Calculation
+                  </button>
+                  <button id="printBtn" class="inline-flex items-center rounded-lg bg-gray-100 px-6 py-3 text-gray-700 font-semibold hover:bg-gray-200 transition">
+                    🖨️ Print Report
                   </button>
                 </div>
                 <div id="shareMessage" class="mt-3 text-sm text-green-600 hidden">
@@ -343,11 +403,30 @@
       // Load values from URL on page load
       loadFromURL();
       
+      function printCalculation() {
+        // Hide the internal view before printing
+        const internalView = document.getElementById('internalView');
+        const wasVisible = internalView.style.display !== 'none' && !internalView.classList.contains('hidden');
+        
+        if (wasVisible) {
+          internalView.style.display = 'none';
+        }
+        
+        // Print the page
+        window.print();
+        
+        // Restore internal view if it was visible
+        if (wasVisible) {
+          internalView.style.display = 'block';
+        }
+      }
+
       // Add event listeners
       document.getElementById('footTraffic').addEventListener('input', calculateRevenue);
       document.getElementById('operatingHours').addEventListener('input', calculateRevenue);
       document.getElementById('daysPerMonth').addEventListener('input', calculateRevenue);
       document.getElementById('shareBtn').addEventListener('click', shareCalculation);
+      document.getElementById('printBtn').addEventListener('click', printCalculation);
       
       // Initial calculation
       calculateRevenue();

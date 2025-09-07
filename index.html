@@ -13,15 +13,13 @@
 
     <style>
       /* Fallback if Tailwind CDN fails */
-      :root { --brand: #0b2a3a; --cream: #f2ecde; }
-      body.bg-brand { background-color: var(--brand); }
-      body.text-cream { color: var(--cream); }
+      :root { --brand: #1f2937; --accent: #3b82f6; --light-blue: #eff6ff; }
       html { scroll-behavior: smooth; }
-      /* Theme Splide controls to match logo palette */
-      .splide__arrow { background: rgba(242,236,222,0.12); border: 1px solid rgba(242,236,222,0.3); color: #f2ecde; }
-      .splide__arrow:hover { background: rgba(242,236,222,0.2); }
-      .splide__pagination__page { background: rgba(242,236,222,0.4); }
-      .splide__pagination__page.is-active { background: #f2ecde; }
+      /* Theme Splide controls for modern design */
+      .splide__arrow { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); color: #3b82f6; }
+      .splide__arrow:hover { background: rgba(59,130,246,0.2); }
+      .splide__pagination__page { background: rgba(59,130,246,0.3); }
+      .splide__pagination__page.is-active { background: #3b82f6; }
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,9 +72,10 @@
         theme: {
           extend: {
             colors: {
-              brand: '#0b2a3a',
-              cream: '#f2ecde',
-              ink: '#0f172a'
+              brand: '#1f2937',
+              accent: '#3b82f6',
+              'light-blue': '#eff6ff',
+              'slate-50': '#f8fafc'
             },
             fontFamily: {
               sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -88,39 +87,39 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="antialiased text-cream bg-brand relative font-sans selection:bg-cream/20 selection:text-white">
+  <body class="antialiased text-gray-800 bg-white relative font-sans selection:bg-blue-100 selection:text-blue-800">
     <main>
 <section class="min-h-screen flex flex-col">
-  <header class="pt-12 pb-10">
+  <header class="pt-12 pb-10 border-b border-gray-100">
     <div class="mx-auto max-w-5xl px-6">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-4">
-          <img src="/images/logo.png" alt="Njord Vending logo" class="h-16 w-16 rounded-full ring-2 ring-cream/30 object-cover bg-cream">
+          <img src="/images/logo.png" alt="Njord Vending logo" class="h-16 w-16 rounded-full ring-2 ring-gray-200 object-cover shadow-sm">
           <div>
-            <h1 class="text-2xl font-extrabold tracking-tight text-cream font-display">Njord LLC</h1>
-            <p class="text-cream/80">Vending Machines • Fort Lee, New Jersey</p>
+            <h1 class="text-2xl font-extrabold tracking-tight text-brand font-display">Njord LLC</h1>
+            <p class="text-gray-600">Vending Machines • Fort Lee, New Jersey</p>
           </div>
         </div>
         <div class="flex gap-3">
-          <a href="#contact" class="inline-flex items-center rounded-lg bg-cream px-4 py-2 text-brand font-semibold transition shadow-md shadow-black/20 hover:shadow-lg hover:-translate-y-0.5">Contact</a>
+          <a href="#contact" class="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-white font-semibold transition shadow-sm hover:bg-blue-600 hover:shadow-md hover:-translate-y-0.5">Contact</a>
         </div>
       </div>
     </div>
   </header>
 
   <main class="grow">
-    <section class="py-10 sm:py-16 bg-cream/10 border-y border-cream/20 relative overflow-hidden">
-      <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_50%_-20%,rgba(242,236,222,0.12),transparent)]"></div>
+    <section class="py-16 sm:py-24 bg-gradient-to-br from-slate-50 to-light-blue relative overflow-hidden">
+      <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(80%_60%_at_50%_-20%,rgba(59,130,246,0.08),transparent)]"></div>
       <div class="mx-auto max-w-5xl px-6 grid gap-10 md:grid-cols-2 md:gap-16 items-center">
         <div>
-          <h2 class="text-4xl font-extrabold leading-tight text-white font-display">Vending that fits the neighborhood</h2>
-          <p class="mt-4 text-lg text-cream/90">We operate modern, card-ready vending machines stocked with popular Korean and Asian drinks and snacks—tailored to the communities we serve in Fort Lee and nearby towns.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#model" class="inline-flex items-center rounded-lg bg-cream px-4 py-2 text-brand font-semibold hover:bg-cream/95 transition shadow-md shadow-black/20 hover:shadow-lg hover:-translate-y-0.5">Features</a>
-            <a href="#placement" class="inline-flex items-center rounded-lg bg-transparent px-4 py-2 text-cream font-semibold ring-1 ring-cream/40 hover:bg-cream/10 transition hover:-translate-y-0.5">Placement</a>
+          <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight text-brand font-display">Vending that fits the neighborhood</h2>
+          <p class="mt-6 text-lg text-gray-600 leading-relaxed">We operate modern, card-ready vending machines stocked with popular Korean and Asian drinks and snacks—tailored to the communities we serve in Fort Lee and nearby towns.</p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#model" class="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-white font-semibold hover:bg-blue-600 transition shadow-sm hover:shadow-md hover:-translate-y-0.5">Features</a>
+            <a href="#placement" class="inline-flex items-center rounded-lg bg-white px-6 py-3 text-accent font-semibold ring-1 ring-accent/20 hover:bg-blue-50 transition hover:-translate-y-0.5">Placement</a>
           </div>
         </div>
-        <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-cream/10 ring-1 ring-inset ring-cream/20 p-0">
+        <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200 shadow-lg p-0">
           <div id="product-splide" class="splide h-full" aria-label="Product images">
             <div class="splide__track h-full">
               <ul id="splide-list" class="splide__list h-full"></ul>
@@ -130,75 +129,163 @@
       </div>
     </section>
 
-    <section id="model" class="py-14 sm:py-20">
+    <section id="model" class="py-16 sm:py-24">
       <div class="mx-auto max-w-5xl px-6">
-        <h3 class="text-2xl font-bold text-white font-display">Why our machines stand out</h3>
-        <p class="mt-2 text-cream/90">Thoughtful details that make placement simple and customers happy.</p>
-        <div class="mt-6 grid gap-6 md:grid-cols-3">
-          <div class="group relative rounded-xl ring-1 ring-cream/25 p-5 bg-gradient-to-br from-cream/10 to-transparent transition transform-gpu hover:bg-cream/15 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20">
-            <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wide text-cream/80 bg-cream/10 ring-1 ring-cream/20 rounded px-2 py-1">Hardware</span>
-            <p class="mt-3 font-semibold text-white">Smart, reliable hardware</p>
-            <p class="mt-2 text-cream/90">Connected machines customers can trust.</p>
-            <ul class="mt-3 space-y-2 text-cream/90 list-disc list-inside marker:text-cream/70">
-              <li>Remote monitoring & alerts</li>
-              <li>Multi‑vend and anti‑jam</li>
-              <li>Energy‑efficient operation</li>
+        <div class="text-center">
+          <h3 class="text-3xl sm:text-4xl font-bold text-brand font-display">Why our machines stand out</h3>
+          <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Thoughtful details that make placement simple and customers happy.</p>
+        </div>
+        <div class="mt-12 grid gap-8 md:grid-cols-3">
+          <div class="group relative rounded-2xl ring-1 ring-gray-200 p-8 bg-white transition transform-gpu hover:shadow-lg hover:-translate-y-1 hover:ring-blue-200">
+            <div class="flex items-center">
+              <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wide text-accent bg-blue-50 ring-1 ring-blue-200 rounded-full px-3 py-1">Hardware</span>
+            </div>
+            <p class="mt-4 text-xl font-semibold text-brand">Smart, reliable hardware</p>
+            <p class="mt-3 text-gray-600">Connected machines customers can trust.</p>
+            <ul class="mt-4 space-y-2 text-gray-700">
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Remote monitoring & alerts</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Multi‑vend and anti‑jam</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Energy‑efficient operation</span>
+              </li>
             </ul>
           </div>
-          <div class="group relative rounded-xl ring-1 ring-cream/25 p-5 bg-gradient-to-br from-cream/10 to-transparent transition transform-gpu hover:bg-cream/15 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20">
-            <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wide text-cream/80 bg-cream/10 ring-1 ring-cream/20 rounded px-2 py-1">Products</span>
-            <p class="mt-3 font-semibold text-white">Curated Korean & Asian picks</p>
-            <p class="mt-2 text-cream/90">Stocked for local tastes—rotated often.</p>
-            <ul class="mt-3 space-y-2 text-cream/90 list-disc list-inside marker:text-cream/70">
-              <li>Drinks, snacks, and treats</li>
-              <li>Local feedback drives restocks</li>
-              <li>Seasonal and limited releases</li>
+          <div class="group relative rounded-2xl ring-1 ring-gray-200 p-8 bg-white transition transform-gpu hover:shadow-lg hover:-translate-y-1 hover:ring-blue-200">
+            <div class="flex items-center">
+              <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wide text-accent bg-blue-50 ring-1 ring-blue-200 rounded-full px-3 py-1">Products</span>
+            </div>
+            <p class="mt-4 text-xl font-semibold text-brand">Curated Korean & Asian picks</p>
+            <p class="mt-3 text-gray-600">Stocked for local tastes—rotated often.</p>
+            <ul class="mt-4 space-y-2 text-gray-700">
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Drinks, snacks, and treats</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Local feedback drives restocks</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Seasonal and limited releases</span>
+              </li>
             </ul>
           </div>
-          <div class="group relative rounded-xl ring-1 ring-cream/25 p-5 bg-gradient-to-br from-cream/10 to-transparent transition transform-gpu hover:bg-cream/15 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20">
-            <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wide text-cream/80 bg-cream/10 ring-1 ring-cream/20 rounded px-2 py-1">Placement</span>
-            <p class="mt-3 font-semibold text-white">Full‑service placement</p>
-            <p class="mt-2 text-cream/90">We handle everything end‑to‑end.</p>
-            <ul class="mt-3 space-y-2 text-cream/90 list-disc list-inside marker:text-cream/70">
-              <li>Site survey and installation</li>
-              <li>Nayax card + tap‑to‑pay</li>
-              <li>Restocking and maintenance</li>
+          <div class="group relative rounded-2xl ring-1 ring-gray-200 p-8 bg-white transition transform-gpu hover:shadow-lg hover:-translate-y-1 hover:ring-blue-200">
+            <div class="flex items-center">
+              <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wide text-accent bg-blue-50 ring-1 ring-blue-200 rounded-full px-3 py-1">Placement</span>
+            </div>
+            <p class="mt-4 text-xl font-semibold text-brand">Full‑service placement</p>
+            <p class="mt-3 text-gray-600">We handle everything end‑to‑end.</p>
+            <ul class="mt-4 space-y-2 text-gray-700">
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Site survey and installation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Nayax card + tap‑to‑pay</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-1.5 h-1.5 bg-accent rounded-full mt-2"></div>
+                <span>Restocking and maintenance</span>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="placement" class="py-14 sm:py-20 bg-cream/10 border-y border-cream/20">
+    <section id="placement" class="py-16 sm:py-24 bg-gradient-to-r from-blue-50 to-indigo-50">
       <div class="mx-auto max-w-5xl px-6">
-        <h3 class="text-2xl font-bold text-white font-display">Ideal placements</h3>
-        <p class="mt-2 text-cream/90">We focus on smaller and mid-sized indoor malls, plazas, and strip centers—especially spots without existing machines but steady foot traffic.</p>
-        <ul class="mt-6 grid gap-3 sm:grid-cols-2">
-          <li class="rounded-lg bg-transparent ring-1 ring-cream/25 p-4 text-cream">Karaoke bars and studios</li>
-          <li class="rounded-lg bg-transparent ring-1 ring-cream/25 p-4 text-cream">Korean-style shopping centers</li>
-          <li class="rounded-lg bg-transparent ring-1 ring-cream/25 p-4 text-cream">Plazas with evening/weekend traffic</li>
-          <li class="rounded-lg bg-transparent ring-1 ring-cream/25 p-4 text-cream">Locations in Bergen County and nearby towns</li>
-        </ul>
+        <div class="text-center">
+          <h3 class="text-3xl sm:text-4xl font-bold text-brand font-display">Ideal placements</h3>
+          <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">We focus on smaller and mid-sized indoor malls, plazas, and strip centers—especially spots without existing machines but steady foot traffic.</p>
+        </div>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl bg-white ring-1 ring-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-accent rounded-full"></div>
+              <span class="font-semibold text-brand">Karaoke bars and studios</span>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-accent rounded-full"></div>
+              <span class="font-semibold text-brand">Korean-style shopping centers</span>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-accent rounded-full"></div>
+              <span class="font-semibold text-brand">Plazas with evening/weekend traffic</span>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-accent rounded-full"></div>
+              <span class="font-semibold text-brand">Locations in Bergen County and nearby towns</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="py-14 sm:py-20">
-      <div class="mx-auto max-w-3xl px-6 text-center">
-        <h3 class="text-2xl font-bold text-white font-display">Get in touch</h3>
-        <p class="mt-3 text-cream/90">Interested in having us at your location? We’d love to talk.</p>
-        <div class="mt-6 flex flex-col items-center gap-2">
-          <a href="mailto:contact@njordvending.com" class="text-lg font-semibold text-cream hover:underline">contact@njordvending.com</a>
-          <a href="sms:+16577750147" class="text-lg text-cream/90 hover:underline">Text us at (657) 775-0147</a>
-          <a href="tel:+16577750147" class="text-lg text-cream/90 hover:underline">Call us at (657) 775-0147</a>
-          <!-- <a href="https://wa.me/16577750147" class="text-lg text-cream/90 hover:underline">WhatsApp us at (657) 775-0147</a> -->
-          <p class="text-cream/80">800 Park Ave, Fort Lee, NJ 07024</p>
+    <section id="contact" class="py-16 sm:py-24">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="text-center">
+          <h3 class="text-3xl sm:text-4xl font-bold text-brand font-display">Get in touch</h3>
+          <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Interested in having us at your location? We'd love to talk.</p>
+        </div>
+        <div class="mt-12 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 sm:p-12">
+          <div class="grid gap-6 md:grid-cols-2 items-center">
+            <div class="space-y-6">
+              <div>
+                <h4 class="text-lg font-semibold text-brand mb-3">Contact Information</h4>
+                <div class="space-y-3">
+                  <a href="mailto:contact@njordvending.com" class="flex items-center gap-3 text-gray-700 hover:text-accent transition">
+                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                    <span class="font-medium">contact@njordvending.com</span>
+                  </a>
+                  <a href="tel:+16577750147" class="flex items-center gap-3 text-gray-700 hover:text-accent transition">
+                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                    <span>(657) 775-0147</span>
+                  </a>
+                  <a href="sms:+16577750147" class="flex items-center gap-3 text-gray-700 hover:text-accent transition">
+                    <div class="w-2 h-2 bg-accent rounded-full"></div>
+                    <span>Text us at (657) 775-0147</span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold text-brand mb-3">Address</h4>
+                <p class="text-gray-600">800 Park Ave, Fort Lee, NJ 07024</p>
+              </div>
+            </div>
+            <div class="flex justify-center">
+              <div class="bg-white rounded-2xl p-8 ring-1 ring-gray-200 shadow-sm">
+                <h4 class="text-lg font-semibold text-brand mb-4">Ready to get started?</h4>
+                <p class="text-gray-600 mb-6">Let's discuss placement opportunities at your location.</p>
+                <a href="mailto:contact@njordvending.com" class="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-white font-semibold hover:bg-blue-600 transition shadow-sm hover:shadow-md">
+                  Send us a message
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="py-8 border-t border-cream/20">
-    <div class="mx-auto max-w-5xl px-6 text-cream/80 text-sm flex items-center justify-between">
+  <footer class="py-12 border-t border-gray-200 bg-gray-50">
+    <div class="mx-auto max-w-5xl px-6 text-gray-600 text-sm flex items-center justify-between">
       <p>© <script>document.write(new Date().getFullYear())</script> Njord LLC — All rights reserved.</p>
       <p>Built with Tailwind CSS</p>
     </div>

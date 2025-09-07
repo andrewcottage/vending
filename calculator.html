@@ -131,9 +131,27 @@
                   </div>
                   
                   <div id="internalView" class="hidden">
-                    <div class="flex justify-between items-center py-4 bg-blue-50 px-4 rounded-lg mt-3">
-                      <span class="text-lg font-semibold text-blue-800">Njord's 90% share</span>
-                      <span class="text-2xl font-bold text-blue-600" id="njordShare">$1,701</span>
+                    <div class="space-y-3 mt-4 p-4 bg-blue-50 rounded-lg">
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm text-blue-700">Njord's 90% share</span>
+                        <span class="font-semibold text-blue-900" id="njordRevenue">$1,701</span>
+                      </div>
+                      <div class="space-y-2 text-xs text-blue-600">
+                        <div class="flex justify-between">
+                          <span>Product costs (40%)</span>
+                          <span id="productCosts">-$680</span>
+                        </div>
+                        <div class="flex justify-between">
+                          <span>Restocking/maintenance</span>
+                          <span id="operatingCosts">-$150</span>
+                        </div>
+                      </div>
+                      <div class="border-t border-blue-200 pt-2">
+                        <div class="flex justify-between items-center">
+                          <span class="text-lg font-semibold text-blue-800">Net Profit</span>
+                          <span class="text-2xl font-bold text-blue-600" id="njordProfit">$871</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -229,8 +247,15 @@
         
         // Update internal view if enabled
         if (document.getElementById('internalView').style.display !== 'none') {
-          const njordShare = grossRevenue * 0.90; // Njord's 90%
-          document.getElementById('njordShare').textContent = '$' + Math.round(njordShare).toLocaleString();
+          const njordRevenue = grossRevenue * 0.90; // Njord's 90% revenue share
+          const productCosts = njordRevenue * 0.40; // 40% for product costs
+          const operatingCosts = Math.min(150, njordRevenue * 0.08); // Operating costs (capped at $150/month)
+          const njordProfit = njordRevenue - productCosts - operatingCosts;
+          
+          document.getElementById('njordRevenue').textContent = '$' + Math.round(njordRevenue).toLocaleString();
+          document.getElementById('productCosts').textContent = '-$' + Math.round(productCosts).toLocaleString();
+          document.getElementById('operatingCosts').textContent = '-$' + Math.round(operatingCosts).toLocaleString();
+          document.getElementById('njordProfit').textContent = '$' + Math.round(njordProfit).toLocaleString();
         }
         
         // Update URL with current values

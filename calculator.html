@@ -129,6 +129,13 @@
                     <span class="text-lg font-semibold text-green-800">Your 10% share</span>
                     <span class="text-2xl font-bold text-green-600" id="yourShare">$189</span>
                   </div>
+                  
+                  <div id="internalView" class="hidden">
+                    <div class="flex justify-between items-center py-4 bg-blue-50 px-4 rounded-lg mt-3">
+                      <span class="text-lg font-semibold text-blue-800">Njord's 90% share</span>
+                      <span class="text-2xl font-bold text-blue-600" id="njordShare">$1,701</span>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="mt-8 pt-6 border-t border-gray-200">
@@ -220,6 +227,12 @@
         document.getElementById('yourShare').textContent = '$' + Math.round(yourShare).toLocaleString();
         document.getElementById('yearlyRevenue').textContent = '$' + Math.round(yearlyRevenue).toLocaleString();
         
+        // Update internal view if enabled
+        if (document.getElementById('internalView').style.display !== 'none') {
+          const njordShare = grossRevenue * 0.90; // Njord's 90%
+          document.getElementById('njordShare').textContent = '$' + Math.round(njordShare).toLocaleString();
+        }
+        
         // Update URL with current values
         updateURL();
       }
@@ -249,6 +262,12 @@
         }
         if (params.has('days')) {
           document.getElementById('daysPerMonth').value = params.get('days');
+        }
+        
+        // Check for internal view parameter
+        if (params.has('internal') && params.get('internal') === 'true') {
+          document.getElementById('internalView').style.display = 'block';
+          document.getElementById('internalView').classList.remove('hidden');
         }
       }
       
